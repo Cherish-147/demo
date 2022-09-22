@@ -13,6 +13,16 @@ public class DemoApplication {
 		return "Spring is here!";
 	}
 
+	@GetMapping("/hello")
+	Book hello(String name)
+	{
+		Book b = new Book();
+		b.ID = 1000;
+		b.Name = name;
+		return b;
+	}
+
+
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
