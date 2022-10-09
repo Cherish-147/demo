@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/books/create" method="post">
+        <input type="text" name="Id" value="" /><br />
+        <input type="text" name="Name" value="" /><br />
+        <input type="submit" value="Add New Book" />
+    </form>
+    <table border="1">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+        </tr>
+        <tr th:each="item : ${books}">
+            <td th:text="${item.Id}"></td>
+            <td th:text="${item.Name}"></td>
+        </tr>
+    </table>
+</body>
+</html>
