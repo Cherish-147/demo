@@ -13,4 +13,10 @@ public class HomeController {
         return "hello";
     }
 
+    @RequestMapping("/")
+    String Index()
+    {
+        return "redirect:/books";
+    }
+
 }

@@ -21,20 +21,33 @@ public class DemoApplicationTests {
 	}
 
 	@Autowired
-	private TestRestTemplate restTemplate;
-	@Autowired
 	private BookMapper bookMapper;
 
-	@Test
-	public void homeResponse() {
-		String body = this.restTemplate.getForObject("/", String.class);
-		assertThat(body).isEqualTo("Spring is here!");
-	}
 
 	@Test
 	public void getBooks()
 	{
 		Book book = bookMapper.selectById(10);
 		System.out.println(book);
+
+		book.Id = 100;
+		book.Name = "New Book";
+		bookMapper.insert(book);
+
+		book = bookMapper.selectById(100);
+		System.out.println(book);
+
+		book.Name = "Book2";
+		bookMapper.updateById(book);
+
+		book = bookMapper.selectById(100);
+		System.out.println(book);
+
+		bookMapper.deleteById(100);
+
+		for(Book b : bookMapper.selectList(null))
+		{
+			System.out.println(b);
+		}
 	}
 }
