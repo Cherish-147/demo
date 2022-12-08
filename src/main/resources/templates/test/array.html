@@ -5,8 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-    BookInfo： <br />
-    Id: <span th:text="${book.Id}"></span> <br />
-    Name: <span th:text="${book.Name}"></span> <br />
+    Int Array:
+    <ul>
+        <li th:each="x: ${intArr}" th:text="${x}"></li>
+    </ul>
 </body>
 </html>

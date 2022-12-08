@@ -10,36 +10,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class TestController {
-    @GetMapping("/test/area")
-    String Area()
+    @GetMapping("/test/hello")
+    String Hello(Model model)
     {
-        return "/test/area";
-    }
-
-    @PostMapping("/test/area")
-    @ResponseBody
-    String Area(Double a, Double h)
-    {
-        System.out.println(a);
-        System.out.println(h);
-        return  "a=" + a + ",h=" + h;
+        model.addAttribute("a", 3);
+        model.addAttribute("b", 4);
+        model.addAttribute("c", 5);
+        return "/test/hello";
     }
 
     @GetMapping("/test/book")
-    String Book(Model model )
+    String Book(Model model)
     {
         Book book = new Book();
-        book.Id = -1;
-        book.Name = "New";
+        book.Id = 123;
+        book.Name = "IBM";
         model.addAttribute("book", book);
         return "/test/book";
     }
 
-    @PostMapping("/test/book")
-    @ResponseBody
-    String Book(Book book)
+    @GetMapping("/test/array")
+    String ArrayTest(Model model)
     {
-        System.out.println(book);
-        return  book.toString();
+        int[] IntArray = {1,2,3,4,5,6,7};
+        model.addAttribute("intArr", IntArray);
+        return "/test/array";
     }
 }
