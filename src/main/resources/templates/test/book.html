@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<form action="/test/book" method="post">
-    Id: <input name="Id" /> <br />
-    Name: <input name="Name" /> <br />
+<form action="/test/book" method="post" th:object="${book}">
+    Id: <input th:field="*{Id}" /> <br />
+    Name: <input th:field="*{Name}" /> <br />
     <input type="submit" value="Submit" />
 </form>
 </body>
